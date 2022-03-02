@@ -10,15 +10,15 @@ using chushkah.Data;
 namespace chushkah.Migrations
 {
     [DbContext(typeof(ChushkaContext))]
-    [Migration("20220223080631_InitalMigration")]
-    partial class InitalMigration
+    [Migration("20220302083340_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.14")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("chushkah.Data.Orders", b =>
@@ -91,6 +91,9 @@ namespace chushkah.Migrations
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
